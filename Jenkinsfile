@@ -14,6 +14,12 @@ node{
         dockerCMD = "${docker}/bin/docker"
         tagName="3.0"
     }
+    node() {
+    checkout scm
+    def a = load('a.groovy')
+    echo("${env.BUILD_NUMBER}")
+    echo("${a.LOADED_BUILD_NUMBER}")
+}
     
     stage('git code checkout'){
         try{
